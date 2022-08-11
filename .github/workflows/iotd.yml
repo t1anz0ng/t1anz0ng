@@ -24,7 +24,7 @@ jobs:
       - name: Create local changes
         run: |
           sudo apt-get update && sudo apt-get -y install jq
-          curl -s https://api.nasa.gov/planetary/apod\?api_key\=${{ secrets.NASA_TOKEN }} | jq '.url' | xargs -I {} wget {} -qO iotd.jpg
+          curl -s https://api.nasa.gov/planetary/apod\?api_key\=${{ secrets.NASA_TOKEN }}\&count\=2 | jq '.[0].url' | xargs -I {} wget {} -qO iotd.jpg
       
       - name: Commit files
         run: |

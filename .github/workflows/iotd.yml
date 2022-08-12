@@ -4,7 +4,7 @@ name: iotd
 
 on:
   schedule:
-    - cron: "1 1 * * *"
+    - cron: "1 8/12 * * *"
 
 
   workflow_dispatch:
@@ -30,7 +30,7 @@ jobs:
         run: |
           git config --local user.email "tianzong48@gmail.com"
           git config --local user.name "t1anz0ng(iotd)"
-          git commit -m "Update today's featured image on $(date +%Y-%m-%d)" -a
+          git commit -m "today's nasa image on $(date +%Y-%m-%d)" -a
       - name: Push changes
         uses: ad-m/github-push-action@master
         with:
